@@ -1,0 +1,39 @@
+html 
+    head 
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" , rel="stylesheet" , integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" , crossorigin="anonymous")
+        title= title  
+    body 
+        nav(class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark")
+            a.navbar-brand(href="#") Z-CASHER 
+            button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
+                span.navbar-toggler-icon
+            div.collapse.navbar-collapse#navbarNav
+                ul.navbar-nav
+                    li.nav-item.active
+                        a.nav-link(href="/products/home") Home 
+                        span.sr-only.current
+                    li.nav-item
+                        a.nav-link(href="/listUsers") List Users
+                    li.nav-item
+                        a.nav-link(href="/") Logout
+                    li.nav-item
+                        a.nav-link(href="/signUp") Sign UP
+                        
+        form(method="POST", action=`/products/add`) 
+            div.form-group.text-center
+                label.text-nowrap Name
+                input(type="text" class="form-control card bg-light mb-3" id="exampleInputEmail1" name="name" value=`${products.name}`)
+
+            div.form-group.text-center
+                label.font-weight-bold Price
+                input(type="text" class="form-control card bg-light mb-3" id="exampleInputEmail1" name="price" value=`${products.price}`)
+
+            div.form-group.text-center
+                label.font-weight-bold(for="exampleInputPassword1") Store
+                textarea.form-control.card.bg-light.mb-3(name="store")= products.store
+
+            div.form-group.text-center
+                label.font-weight-bold(for="exampleInputPassword1") Description
+                textarea.form-control.card.bg-light.mb-3(name="description")= products.description
+            
+            <button type="submit" class="btn btn-primary"> ADD

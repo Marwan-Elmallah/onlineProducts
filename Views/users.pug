@@ -1,0 +1,36 @@
+html 
+    head 
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" , rel="stylesheet" , integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" , crossorigin="anonymous")
+        title= title  
+    body 
+        nav(class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark")
+            a.navbar-brand(href="#") Z-CASHER 
+            button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
+                span.navbar-toggler-icon
+            div.collapse.navbar-collapse#navbarNav
+                ul.navbar-nav
+                    li.nav-item.active
+                        a.nav-link(href="/products/home") Home 
+                        span.sr-only.current
+                    //- li.nav-item
+                    //-     a.nav-link(href="/listUsers") List Users
+                    li.nav-item
+                        a.nav-link(href="/") Logout
+                    li.nav-item
+                        a.nav-link(href="/signUp") Add User
+        span.row
+            each user in users  
+                div.card.card-header.m-3(style="width:18%")
+                    img.card-img-top(src="https://via.placeholder.com/150" alt="Card image cap")
+                    div.card-body
+                        h5.card-title= user.name
+                        p.card-text= user.Mobile
+                        p.card-text= user.username
+                        p.card-text= user.Mobile
+                        a.btn.btn-primary.mx-5(href=`/edit/${user._id}`) Edit
+                        form(method="POST", action=`/del/${user._id}` style="display: inline") 
+                            button(type="submit" class="btn btn-danger") Delete
+
+            div.card.card-header.m-3(style="width:18%")
+                    img.card-img-top(src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/OOjs_UI_icon_add.svg/1200px-OOjs_UI_icon_add.svg.png" alt="Card image cap")
+                    a.btn.btn-success.btn-lg.mx-3.p-5(href=`/signUp`) Add New

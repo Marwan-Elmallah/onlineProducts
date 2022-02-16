@@ -1,0 +1,44 @@
+html 
+    head 
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" , rel="stylesheet" , integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" , crossorigin="anonymous")
+        title= title  
+    body
+        nav(class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark")
+            a.navbar-brand(href="#") Z-CASHER 
+            button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
+                span.navbar-toggler-icon
+            div.collapse.navbar-collapse#navbarNav
+                ul.navbar-nav
+                    li.nav-item.active
+                        a.nav-link(href="/products/home") Home 
+                        span.sr-only.current
+                    li.nav-item
+                        a.nav-link(href="/listUsers") List Users
+                    li.nav-item
+                        a.nav-link(href="/") Logout
+                    li.nav-item
+                        a.nav-link(href="/signUp") Add User
+        
+        #main.text-center
+            span.row.wid.text
+                div.card.card-header.m-3
+                    form(method="POST", action=`/${users._id}`)
+                        div.label(style="font-weight:800;color:#515151;font-size: 25px;") Edit User Form
+                            div.input-group.mb-3
+                                div.input-group-prepend
+                                    span.input-group-text Name
+                                input(type="text" class="form-control" name="name" value=`${users.name}`)
+                            div.input-group.mb-3
+                                div.input-group-prepend
+                                    span.input-group-text Mobile
+                                input(type="text" class="form-control" name="Mobile" value=`${users.Mobile}`)
+                            div.input-group.mb-3
+                                div.input-group-prepend
+                                    span.input-group-text Password
+                                input(type="number" class="form-control" name="password" value=`${users.password}`)
+                            div.input-group.mb-3
+                                div.input-group-prepend
+                                    span.input-group-text privleage
+                                input(type="number" max="3" class="form-control" name="privleage" value=`${users.privleage}`)
+
+                        button.btn-dark.my-5.btn-lg(type="submit") Update

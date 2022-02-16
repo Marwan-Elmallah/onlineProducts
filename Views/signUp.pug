@@ -1,0 +1,44 @@
+html(lang="en")
+  head
+    title Login Form In Pug
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='style.css')
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" , rel="stylesheet" , integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" , crossorigin="anonymous")
+  body
+    nav(class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark")
+            a.navbar-brand(href="#") Z-CASHER 
+            button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
+                span.navbar-toggler-icon
+            div.collapse.navbar-collapse#navbarNav
+                ul.navbar-nav
+                    li.nav-item.active
+                        a.nav-link(href="/products/home") Home 
+                        span.sr-only.current
+                    li.nav-item
+                        a.nav-link(href="/listUsers") List Users
+                    li.nav-item
+                        a.nav-link(href="/") Login
+                    //- li.nav-item
+                    //-     a.nav-link(href="/signUp") Add User
+    #main
+        form.text-center(method="POST", action=`/SIGNUP`)
+            div.label Add User Form
+            div.username
+                input(type="text" placeholder="Name" name="name")
+            div.username
+                input(type="text" placeholder="Username" name="username")
+            div.username
+                input(type="text" placeholder="Mobile" name="mobile")
+            div.username
+                input(type="text" placeholder="Email" name="email")
+            div.username
+                input(type="number" max="3" placeholder="privelage" name="level")
+            div.password
+                input(type="password" placeholder="password" name="password")
+            div.password
+                input(type="password" placeholder="re=password" id="pass")
+            button(type="submit" class="btn btn-primary my-5 btn-lg") ADD
+            a.btn.btn-dark.btn-lg(href=`/` style="padding:0px 100px" ) Login
